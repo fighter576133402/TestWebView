@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="cn.com.uangel.test.MainActivity" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_java_call_js"
+        android:orderInCategory="100"
+        android:title="@string/action_java_call_js"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/action_java_call_js_with"
+        android:orderInCategory="100"
+        android:title="@string/action_java_call_js_with"
+        app:showAsAction="never"/>
+
+</menu>
