@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.ViewConfiguration;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -35,6 +36,8 @@ import android.webkit.WebViewClient;
 	private void initActionBar(){
 		actionBar = getSupportActionBar();
 		actionBar.setDisplayShowHomeEnabled(true);
+		// actionBar.setBackgroundDrawable() 设置actionbar背景
+		// actionBar.setTitle(arg0);设置actionbar标题
 	}
 	/**
 	 *  初始化webview
@@ -53,6 +56,10 @@ import android.webkit.WebViewClient;
 				return true;
 			}
 		});
+		/**
+		 * webview只是一个承载体，各种内容的渲染需要使用webviewChromClient去实现
+		 */
+		web.setWebChromeClient(new MyWebChromeClient());
 		// web.loadUrl("http://www.baidu.com");
 		// 从assets目录下面的加载html
 		web.loadUrl("file:///android_asset/wst.html");
