@@ -3,6 +3,8 @@ package cn.com.uangel.test;
 import java.lang.reflect.Field;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -11,13 +13,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.ViewConfiguration;
-import android.webkit.WebChromeClient;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
-@SuppressLint("JavascriptInterface") public class MainActivity extends ActionBarActivity{
+public class MainActivity extends ActionBarActivity{
 	private WebView web;
 	private ActionBar actionBar;
+	private Context mContext;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +30,7 @@ import android.webkit.WebViewClient;
 		initWebView();
 		initActionBar();
 		setMenuList();
-		// 注册接口，让javascript能够调用java代码
-		// web.addJavascriptInterface(this, "wst");
+		mContext = this;
 	}
 
 	/**
@@ -42,7 +45,7 @@ import android.webkit.WebViewClient;
 	/**
 	 *  初始化webview
 	 */
-	@SuppressLint("SetJavaScriptEnabled") 
+	@SuppressLint({ "SetJavaScriptEnabled", "JavascriptInterface" }) 
 	private void initWebView(){
 		web = (WebView) findViewById(R.id.web_content);
 		/**如果访问的页面中有Javascript，则webview必须设置支持Javascript。*/
@@ -56,13 +59,13 @@ import android.webkit.WebViewClient;
 				return true;
 			}
 		});
-		/**
-		 * webview只是一个承载体，各种内容的渲染需要使用webviewChromClient去实现
-		 */
+		// webview只是一个承载体，各种内容的渲染需要使用webviewChromClient去实现
 		web.setWebChromeClient(new MyWebChromeClient());
-		// web.loadUrl("http://www.baidu.com");
+		// 注册接口，让javascript能够调用java代码
+		 web.addJavascriptInterface(new JsObjectFunction(), "injectedObject"); 
 		// 从assets目录下面的加载html
 		web.loadUrl("file:///android_asset/wst.html");
+		// web.loadUrl("http://www.baidu.com");
 	}
 	/**
 	 * 设置menu能够下拉显示
@@ -117,25 +120,33 @@ import android.webkit.WebViewClient;
 		}
 		return super.onKeyDown(keyCode, event);
 	}
-	
-	public void startFunction() {
-		runOnUiThread(new Runnable() {
+	class JsObjectFunction{
+		@JavascriptInterface
+		public void startFunction() {
+			runOnUiThread(new Runnable() {
 
-			@Override
-			public void run() {
-				System.out.println("--------");
-			}
-		});
-	}
+				@Override
+				public void run() {
+					Toast.makeText(mContext, "没有参数", Toast.LENGTH_SHORT).show();
+				}
+			});
+		}
+		@JavascriptInterface
+		public void startFunction(final String str) {
+			runOnUiThread(new Runnable() {
 
-	public void startFunction(final String str) {
-		runOnUiThread(new Runnable() {
-
-			@Override
-			public void run() {
-				System.out.println("=========");
-			}
-		});
+				@Override
+				public void run() {
+					Toast.makeText(mContext, str, Toast.LENGTH_SHORT).show();
+				}
+			});
+		}
+		@JavascriptInterface
+		public void callIntent(){
+			Intent intent = new Intent();
+			intent.setClass(MainActivity.this, JsCallActivity.class);
+			startActivity(intent);
+		}
 	}
 	
 }
