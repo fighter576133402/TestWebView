@@ -953,12 +953,6 @@ containing a value of this type.
          (such as screen margins) for screens with more than 820dp of available width. This
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
- Default screen margins, per the Android Design guidelines. 
-
-         Example customization of dimensions originally defined in res/values/dimens.xml
-         (such as screen margins) for screens with more than 820dp of available width. This
-         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
-    
          */
         public static final int activity_horizontal_margin=0x7f080015;
         public static final int activity_vertical_margin=0x7f080016;
@@ -1094,17 +1088,15 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f050023;
         public static final int action_bar_title=0x7f050022;
         public static final int action_context_bar=0x7f05001d;
-        public static final int action_java_call_js=0x7f050043;
-        public static final int action_java_call_js_with=0x7f050044;
+        public static final int action_java_call_js=0x7f05003e;
+        public static final int action_java_call_js_with=0x7f05003f;
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050042;
+        public static final int action_settings=0x7f05003d;
         public static final int activity_chooser_view_content=0x7f050025;
-        public static final int add=0x7f05003f;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
-        public static final int chart=0x7f050040;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
         public static final int default_activity_button=0x7f050028;
@@ -1124,7 +1116,6 @@ containing a value of this type.
         public static final int list_item=0x7f050029;
         public static final int middle=0x7f050012;
         public static final int never=0x7f050009;
-        public static final int new_series=0x7f050041;
         public static final int none=0x7f050010;
         public static final int normal=0x7f050000;
         public static final int progress_circular=0x7f050018;
@@ -1153,8 +1144,6 @@ containing a value of this type.
         public static final int useLogo=0x7f050003;
         public static final int web_content=0x7f05003c;
         public static final int withText=0x7f05000c;
-        public static final int xValue=0x7f05003d;
-        public static final int yValue=0x7f05003e;
     }
     public static final class integer {
         /**  The maximum number of action buttons that should be permitted within
@@ -1209,7 +1198,6 @@ containing a value of this type.
         public static final int activity_main=0x7f030018;
         public static final int js_call_activity=0x7f030019;
         public static final int support_simple_spinner_dropdown_item=0x7f03001a;
-        public static final int xy_chart=0x7f03001b;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -1255,16 +1243,11 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
-        public static final int action_java_call_js=0x7f0a0015;
-        public static final int action_java_call_js_with=0x7f0a0016;
-        public static final int action_settings=0x7f0a0014;
-        public static final int add=0x7f0a0011;
-        public static final int add_values=0x7f0a000e;
+        public static final int action_java_call_js=0x7f0a0010;
+        public static final int action_java_call_js_with=0x7f0a0011;
+        public static final int action_settings=0x7f0a000f;
         public static final int app_name=0x7f0a000d;
-        public static final int hello_world=0x7f0a0013;
-        public static final int new_series=0x7f0a0012;
-        public static final int x=0x7f0a000f;
-        public static final int y=0x7f0a0010;
+        public static final int hello_world=0x7f0a000e;
     }
     public static final class style {
         /** 
@@ -1287,31 +1270,9 @@ containing a value of this type.
         res/values-v11/styles.xml on API 14+ devices.
     
  API 14 theme customizations can go here. 
-
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
-        Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
-    
- API 11 theme customizations can go here. 
-
-        Base application theme for API 14+. This theme completely replaces
-        AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml on API 14+ devices.
-    
- API 14 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f0b008b;
         /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
- Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0b008c;
